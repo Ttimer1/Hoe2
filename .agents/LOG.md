@@ -62,6 +62,64 @@
 
 ---
 
+## 2026-01-21 | Sprint 0 Complete
+
+### Session: Foundation Implementation
+
+**Duration**: ~2 hours
+**Participants**: Tom, Claude (Opus 4.5)
+
+#### What Was Done
+
+1. **Monorepo Setup**
+   - Turborepo with pnpm workspaces
+   - apps/web, apps/extension, packages/shared, packages/database
+
+2. **Web App (Next.js 14)**
+   - TypeScript strict mode
+   - TailwindCSS with shadcn/ui theming
+   - Supabase auth (login, register pages)
+   - Middleware route protection
+   - Dashboard workflows page
+
+3. **Chrome Extension Scaffold**
+   - MV3 manifest
+   - Vite build system
+   - Popup UI, background script, content script
+   - Recording state management
+
+4. **Database**
+   - Schema: profiles, workflows, steps, screenshots, share_links
+   - RLS policies for user isolation
+   - Auto-profile creation trigger
+   - Supabase project configured
+
+5. **AI Decision Change**
+   - Switched from Claude to Gemini
+   - Rationale: native multimodal vision for screenshot analysis
+
+#### Key Decisions
+
+| Decision | Choice | Rationale |
+|----------|--------|-----------|
+| AI Provider | Google Gemini | Native multimodal vision for screenshots |
+| Dynamic rendering | force-dynamic layouts | Avoid build-time Supabase errors |
+| Package verification | Research lesser-known packages | Security best practice |
+
+#### Blockers / Issues
+
+- None
+
+#### Next Steps
+
+1. Sprint 1: Core Recording
+   - Content script event listeners
+   - Screenshot capture
+   - Upload pipeline
+   - Workflow/step creation APIs
+
+---
+
 ## Template for Future Entries
 
 ```markdown
@@ -97,16 +155,26 @@
 
 ### For Next Session
 
-**Context**: Sprint 0 foundation work is ready to begin.
+**Context**: Sprint 0 complete. Foundation is built and running.
+
+**What's Working**:
+- Web app at http://localhost:3001 (pnpm dev:web)
+- Auth flow (login/register) with Supabase
+- Database schema deployed with RLS
+- Extension builds successfully (pnpm build)
 
 **Files to Review**:
 - `/plans/20260121-1441_MVP-IMPLEMENTATION-PLAN.md` - Full sprint breakdown
-- `/.agents/TASKS.md` - Current sprint tasks
-- `/.agents/TECH.md` - Technical standards
+- `/.agents/TASKS.md` - Update for Sprint 1
+- `apps/extension/src/content.ts` - Recording logic to enhance
 
-**Immediate Actions**:
-1. `pnpm create turbo@latest` to initialize monorepo
-2. Create Supabase project at supabase.com
-3. Setup environment variables
+**Immediate Actions (Sprint 1)**:
+1. Implement screenshot capture in content script
+2. Build upload pipeline to Supabase Storage
+3. Create workflow/step creation API routes
+4. Wire extension popup to create new workflows
+
+**Supabase Project**: `stelafvkyfuixngeugmb`
+**GitHub**: https://github.com/Ttimer1/Hoe2
 
 **No Blockers**.

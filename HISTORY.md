@@ -47,6 +47,52 @@
 
 ---
 
+### 2026-01-21 16:30 - Sprint 0 Foundation Complete
+
+**Participants**: Tom, Claude (Opus 4.5)
+**Duration**: ~2 hours
+
+#### Completed
+
+| Task | Commit |
+|------|--------|
+| Turborepo monorepo setup | `426b64b` |
+| Next.js 14 web app with auth | `426b64b` |
+| Chrome MV3 extension scaffold | `426b64b` |
+| Database schema + RLS policies | `426b64b` |
+| Supabase project configured | - |
+
+#### Key Decisions
+
+| Decision | Choice | Rationale |
+|----------|--------|-----------|
+| AI Provider | Google Gemini | Native multimodal vision for screenshots |
+| Dynamic layouts | force-dynamic | Avoid build-time Supabase client errors |
+| Package security | Research first | Verify lesser-known packages before install |
+
+#### Learnings
+
+- Supabase SSR requires explicit type annotations for cookie setters
+- Auth pages need dynamic rendering to avoid build-time env var errors
+- Plan file naming: `{name}_{YYYYMMDD-HHMM}.md`
+
+#### CLAUDE.md Candidates (5-check)
+
+| Candidate | H | S | G | N | A | Score | Action |
+|-----------|---|---|---|---|---|-------|--------|
+| Research lesser-known packages | Y | Y | Y | Y | Y | 5/5 | Added |
+| Plan file naming convention | Y | Y | Y | Y | Y | 5/5 | Added |
+| Gemini for AI (vision) | Y | Y | Y | Y | Y | 5/5 | Added |
+
+#### Next Session
+
+- Sprint 1: Core Recording
+- Content script event listeners
+- Screenshot capture implementation
+- Upload pipeline to Supabase Storage
+
+---
+
 ## Template
 
 ```markdown
@@ -91,7 +137,7 @@
 | Date | Milestone | Notes |
 |------|-----------|-------|
 | 2026-01-21 | Project kickoff | Foundation docs complete |
-| - | Sprint 0 complete | TBD |
+| 2026-01-21 | Sprint 0 complete | Monorepo, auth, extension scaffold |
 | - | Sprint 1 complete | TBD |
 | - | MVP launch | TBD |
 
@@ -143,4 +189,26 @@
 
 ---
 
-_Last updated: 2026-01-21 14:45_
+### ADR-003: Google Gemini over Claude for AI
+
+**Date**: 2026-01-21
+**Status**: Accepted
+
+**Context**: Need AI to analyze screenshots and generate step descriptions.
+
+**Decision**: Use Google Gemini API instead of Claude API.
+
+**Rationale**:
+- Native multimodal vision capabilities
+- Exceptional screenshot/image understanding
+- Single API call for image + text analysis
+- No need for separate vision preprocessing
+
+**Consequences**:
+- Different API patterns than Claude
+- Google Cloud billing required
+- May need API key management for Gemini
+
+---
+
+_Last updated: 2026-01-21 16:45_
