@@ -1,0 +1,12 @@
+{
+  "name": "@hoe2/database",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "migrate": "supabase db push",
+    "generate-types": "supabase gen types typescript --local > src/types.ts"
+  },
+  "devDependencies": {
+    "supabase": "^2.0.0"
+  }
+}

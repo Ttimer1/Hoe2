@@ -1,0 +1,22 @@
+{
+  "name": "hoe2",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:web": "turbo dev --filter=@hoe2/web",
+    "dev:extension": "turbo dev --filter=@hoe2/extension",
+    "build": "turbo build",
+    "build:extension": "turbo build --filter=@hoe2/extension",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "db:migrate": "pnpm --filter=@hoe2/database migrate",
+    "db:types": "pnpm --filter=@hoe2/database generate-types",
+    "clean": "turbo clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0"
+  }
+}

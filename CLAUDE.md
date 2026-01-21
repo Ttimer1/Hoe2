@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Hoe2 is a **Scribe clone** - an AI-powered workflow documentation platform. Users record browser actions via a Chrome extension, and AI generates step-by-step guides automatically.
 
-**Status**: Pre-development (Sprint 0 planning complete, implementation starting)
+**Status**: Sprint 0 complete - foundation built, ready for Sprint 1
 
 ## Documentation Structure
 
@@ -17,7 +17,7 @@ Hoe2 is a **Scribe clone** - an AI-powered workflow documentation platform. User
   TASKS.md          # Current sprint backlog
   LOG.md            # Session diary, handovers
 
-/plans/             # Timestamped implementation plans
+/plans/             # Implementation plans (naming: {name}_{YYYYMMDD-HHMM}.md)
 /research/          # PRD, technical blueprint, competitive analysis
 ```
 
@@ -31,7 +31,7 @@ Hoe2 is a **Scribe clone** - an AI-powered workflow documentation platform. User
 | Extension | Chrome MV3, Vite, TypeScript |
 | Backend | Next.js API Routes, Server Actions |
 | Database | Supabase PostgreSQL + RLS |
-| AI | Claude API (Haiku primary, Sonnet for complex) |
+| AI | Google Gemini API (native multimodal vision) |
 
 ## Architecture
 
@@ -44,7 +44,7 @@ Hoe2 is a **Scribe clone** - an AI-powered workflow documentation platform. User
 **Core Data Flow**:
 1. Extension captures clicks/inputs with screenshots
 2. Data uploads to Supabase Storage + database
-3. Claude AI generates step descriptions
+3. Gemini AI analyzes screenshots and generates step descriptions
 4. Web app displays/edits workflows
 
 ## Code Standards
@@ -53,8 +53,9 @@ Hoe2 is a **Scribe clone** - an AI-powered workflow documentation platform. User
 - Tailwind only (no inline styles)
 - Supabase RLS on all tables
 - Conventional commits: `type(scope): description`
+- Before installing lesser-known packages, research reviews/security first
 
-## Commands (when monorepo exists)
+## Commands
 
 ```bash
 pnpm dev              # Start all apps
