@@ -182,3 +182,20 @@ NEXT_PUBLIC_APP_URL=
 ```
 
 **Never commit `.env` files!**
+
+---
+
+## CLAUDE.md Update Rules
+
+**Before updating this file, pass ALL 5 checks:**
+
+| # | Check | JA = | NEE = |
+|---|-------|------|-------|
+| 1 | **Herhaalbaarheid** - Relevant voor toekomstige sessies? | Conventions, architecture | One-off fixes, tijdelijke workarounds |
+| 2 | **Stabiliteit** - Is dit stabiel (niet in flux)? | Vastgestelde patterns | Experimentele approaches |
+| 3 | **Genericiteit** - Geldt voor hele project? | "We gebruiken X voor Y" | "In file.ts regel 45..." |
+| 4 | **Non-redundantie** - Niet al aanwezig? | Nieuwe insight, correctie | Herhaling, marginale variatie |
+| 5 | **Actionability** - Direct bruikbaar? | "Run X before Y" | "Er was ooit een bug..." |
+
+**Score 5/5** → Update toestaan
+**Score <5** → Geen update, log in `/.agents/LOG.md`
